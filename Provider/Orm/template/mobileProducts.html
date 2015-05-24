@@ -1,0 +1,22 @@
+<div class="brand_qna_list">
+    <ul>
+        <?php
+        if($this->attribute->start_page != 1) { ?>
+            <li><a href="/mall_new/products/<?php echo $this->attribute->pre_group?>/?<?php echo $parameter?>">&lt;</a></li>
+        <?php
+        }
+        for($i = $this->attribute->start_page ; $i <= $this->attribute->end_page ; $i++) {
+            $class = '';
+            if ($this->attribute->now_page == $i) {
+                $class = 'on';
+            }
+            echo '<li class="' . $class . '"><a href="/mall_new/products/' . $i . '/?' . $parameter . '">' . $i . '</a></li>';
+        }
+        if(ceil($this->attribute->total_page - $this->attribute->end_page > 0)) {
+            ?>
+            <li><a href="/mall_new/products/<?php echo $this->attribute->next_group?>/?<?php echo $parameter;?>">&gt;</a></li>
+        <?php
+        }
+        ?>
+    </ul>
+</div>

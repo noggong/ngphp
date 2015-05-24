@@ -1,0 +1,44 @@
+<div class="paging">
+<ul>
+        <?php
+        if($this->attribute->start_page != 1){ ?>
+            <li>
+                <a href="/mall_new/products/company/<?php echo $company_id?>/1/?<?php echo $parameter?>">
+                    처음
+                </a>
+            </li>
+            <li>
+                <a href="/mall_new/products/company/<?php echo $company_id?>/<?php echo $this->attribute->pre_group?>/?<?php echo $parameter?>">
+                    이전
+                </a>
+            </li>
+        <?php
+        }
+        for($i = $this->attribute->start_page ; $i <= $this->attribute->end_page ; $i++){
+            if ($this->attribute->now_page == $i){?>
+                <li ><a class="current"><?php echo $i?></a></li>
+            <?php
+            } else {?>
+                <li><a href="/mall_new/products/company/<?php echo $company_id?>/<?php echo $i?>/?<?php echo $parameter?>"><?php echo $i?></a></li>
+            <?php
+            }
+        }
+        if(ceil($this->attribute->total_page - $this->attribute->end_page > 0)){?>
+
+            <li>
+                <a href="/mall_new/products/company/<?php echo $company_id?>/<?php echo $this->attribute->next_group?>/?<?php echo $parameter;?>">
+                    다음
+                </a>
+            </li>
+            <li>
+                <a href="/mall_new/products/company/<?php echo $company_id?>/<?php echo $this->attribute->total_page?>/?<?php echo $parameter?>">
+                    마지막
+                </a>
+            </li>
+        <?php
+        }?>
+
+    </ul>
+</div>
+
+

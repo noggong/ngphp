@@ -1,0 +1,61 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" style="height: auto;">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="<?php echo $this->user->getImageSrc()?>" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p><?php echo $this->user->getName()?></p>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <?php
+            foreach ($this->app->admin_left as $header) {
+                if ($this->user->isCompany() && $header['title'] != '쇼핑몰 카테고리') {
+                    continue;
+                }
+                echo '<li class="header">' . $header['title'] . '</li>';
+
+                foreach ($header['item'] as $categories) {
+
+                    if ($this->user->isCompany() && $categories['title'] == '상점 관리') {
+                        continue;
+                    }
+                    $active_class = '';
+                    if ($this->page_keyword == $categories['keyword']) {
+                        $active_class = ' active';
+                    }
+                ?>
+                    <li class="treeview<?php echo $active_class?>">
+                        <a href="<?php echo (!empty($categories['link']) ? $categories['link']: '#')?>">
+                            <i class="fa fa-laptop"></i>
+                            <span><?php echo $categories['title']?></span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <?php
+                        if (!empty($categories['item'])) {
+                            echo '<ul class="treeview-menu">';
+                            foreach($categories['item'] as $item) {
+                                if ($this->user->isCompany() && $item['title'] == '상점 관리') {
+                                    continue;
+                                }
+                                echo '<li><a href="' . $item['link'] . '"><i class="fa fa-circle-o"></i>' . $item['title'] . '</a></li>';
+                            }
+                            echo '</ul>';
+                        }
+                        ?>
+                    </li>
+                <?php
+                }
+            }
+            ?>
+
+
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>smartPop</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta name="author" content="pharos" />
+    <meta name="robots" content="noarchive" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="smartPop,jQuery,plugin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="http://lib.innocia.com/css/base.css" />
+    <link rel="stylesheet" href="http://lib.innocia.com/css/common.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="jquery.smartPop.js"></script>
+    <link rel="stylesheet" href="jquery.smartPop.css" />
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#sample1').click(function() {
+                $.smartPop.open({ background: "red", width: 500, height: 500, html: "smartPop" });
+            });
+            $('#sample1-1').click(function() {
+                $.smartPop.open({title: '스마트팝', width: 500, height: 500, html: '보여줄 내용', position:'fixed', left: 10, top: 10 });
+            });
+            $('#sample2').click(function() {
+                $.smartPop.open({ width: 800, height: 500, url: 'smartPop.html' });
+            });
+            $('#sample3').click(function() {
+                $.smartPop.open({title: '스마트팝', width: 800, height: 500, log: true, url: 'smartPop.html' });
+            });
+            $('#sample4').click(function() {
+                $.smartPop.open({ bodyClose: true, width: 500, height: 500, html: "smartPop" });
+            });
+            $('#sample5').click(function() {
+                $.smartPop.open({ bodyClose: true, width: 500, height: 500, html: "smartPop", closeImg: {width:13, height:13, src:'img/btn_close2.png'} });
+            });
+        });
+    </script>
+
+    <style type="text/css">
+    body {-webkit-text-size-adjust:none;}
+    #wrap {width:91%; margin:auto;}
+    h1 {margin-top:10px;}
+    .title {margin-top:50px;}
+    h3 {padding-bottom:5px;}
+    div.box {border:solid 1px gray; padding:10px;}
+    .content {line-height:20px;}
+    .exp {margin-left:10px; margin-bottom:10px;}
+    ul {list-style:none;}
+    ol {margin-left:20px;}
+    footer {margin-top:50px; padding;20px; height:100px; border-top:solid 1px #aaa;}
+
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+    <header>
+      <h1>smartPop</h1>
+    </header>
+    <nav>
+        <!--
+      <p><a href="/">Home</a></p>
+      <p><a href="/contact">Contact</a></p>
+        -->
+    </nav>
+
+    <h1>History</h1>
+    <ol>
+        <li>2012.04.03 테두리 표시 방식 변경 및 불필요한 요소 제거
+        	<div class="content">
+        		기존에는 둥근 테두리를 지원하기 위해 이미지를 사용했으나 사용빈도가 없어서 이미지를 빼버리고 style 속성으로 지정할 수 있게 함.<br />
+        		따라서 이미지가 들어가는 부분은 닫기 버튼 하나.<br />
+        		불필요한 태그 제거.<br />
+        		추가 옵션 : border(테두리 두께), borderColor(테두리 색), padding(안쪽여백), closeMargin(닫기버튼 여백-위쪽,오른쪽 기)<br />
+        	</div></li>
+        <li>2012.01.02 위치고정 및 기타 버그 수정</li>
+        <li>2011.12.20 ie 버그 수정 - $.smartPop.close() 호출시 jQuery 오류 발생. 처음에만 install하고 그 뒤로는 show() or hide()로 처리</li>
+    </ol>
+
+    <h1 class="title">레이어로 팝업 띄우기 - html or url</h1>
+    <div class="content">
+        레이어로 팝업 띄우는 소스는 웹에서 쉽게 구할 수 있지만 딱 내입맛에 맞는것이 없어서 만들까 말까 고민하다가 마침 쓸 일이 생겨서 만들었다.<br />
+        일반적인 크기의 내용을 보여주는 팝업의 경우는 문제가 없지만 브라우저보다 큰 내용을 보여 줄 경우 스크롤바가 레이어에 생겨 버려서 모양도 별로 안 예쁘고 스크롤 하기도 불편하다.<br />
+        불편한 이유는 본문 스크롤과 팝업 스크롤이 겹치기 때문이다.<br />
+        그리고 또하나의 문제점은 브라우저 크기를 변경하면 팝업 위치가 고정이 되어 버려서 모양이 깨지게 된다.(기존에 단순하게 만든 팝업)<br />
+        <br />
+        좀 불편한게 있긴해도 바뻐서 그냥 무시하고 있었는데 요즘 페이스북을 많이 하다 보니 페이스북에서 특이한 점을 발견했다.<br />
+        페이스북 사진을 클릭하면 레이어 팝업이 뜨게 되는데 이때 스크롤바가 메인 페이지의 뉴스피드 스크롤바가 아니라 팝업의 스크롤바이다.<br />
+        뉴스피드는 스크롤 할때 마다 새로운 내용을 가져오기 때문에 스크롤을 하면 할 수록 스크롤 길이가 커지게 된다.<br />
+        그런데 어디서든 사진 보기를 클릭하면 사진 크기와 댓글 길이에 딱 맞게 필요한 만큼만 스크롤이 가능하고 레이어를 닫으면 다시 원래 뉴스피드의 스크롤이 나온다.<br />
+        처음엔 브라우저 기본 스크롤 위로 레이어를 올렸는지 알고 무척 신기해했다. 불가능한것으로 알고 있었는데 어떻게 했는지?<br />
+        소스를 분석해 보려고 봐도 일반 사이트와는 달라서 확인하기가 쉽지가 않다.<br />
+        스크립트 파악은 힘들고 html 엘리먼트값의 변화를 보면서 css를 분석했다.<br />
+        명령은 자바스크립트로 하지만 실제 작동은 css를 조작하는 것이기 때문에~<br />
+        한참의 삽질끝에 페이스북과 같은 효과를 만들었다.<br />
+        만든김에 좀더 편하게 쓰려고 jQuery 플러그인 형태로 작업했다.<br />
+    </div>
+
+    <h2>목적</h2>
+    <ol class="content">
+        <li>내용에 상관없이 깔끔한 스크롤바 처리하기</li>
+        <li>브라우저 크기에 상관없이 중앙에 띄우기</li>
+        <li>html 컨텐츠, url 페이지 모두 가능하게 하기</li>
+    </ol>
+
+    <h2>특징</h2>
+    <ol class="content">
+        <li>브라우저 호환</li>
+        <li>깔끔한 스크롤바 처리</li>
+        <li>브라우저 크기 변경시 레이어 팝업 자동 중앙 정렬</li>
+        <li>html, url 모두 사용 가능</li>
+        <li>url 페이지를 띄울 경우 프레임 크기 자동 조절</li>
+    </ol>
+
+    <h2>설치</h2>
+    <pre class="brush: js">
+
+        &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="jquery.smartPop.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="jquery.smartPop.css" /&gt;
+        &nbsp;
+
+    </pre>
+
+    <h2>사용법</h2>
+    <ol class="content">
+        <li>html 내용 보여주기
+            <pre class="brush: js">
+
+                $.smartPop.open({title: '스마트팝', background: "red", width: 500, height: 500, html: '보여줄 내용' });
+
+                // 위치고정
+                $.smartPop.open({title: '스마트팝', width: 500, height: 500, html: '보여줄 내용', position:'fixed', left: 10, top: 10 });
+                &nbsp;
+
+            </pre>
+            <div class="exp">
+                <input type="button" id="sample1" class="button" value="sample1" />
+                <input type="button" id="sample1-1" class="button" value="위치고정" />
+            </div>
+        </li>
+        <li>url 페이지 띄우기
+            <pre class="brush: js">
+
+                $.smartPop.open({title: '스마트팝', width: 500, height: 500, url: '보여줄 페이지' });
+                &nbsp;
+
+            </pre>
+            <div class="exp">
+                세로 크기는 불러오는 페이지 크기에 맞게 자동으로 조절됨<br />
+                <input type="button" id="sample2" class="button" value="sample2" />
+            </div>
+        </li>
+        <li>높이값 확인 로그
+            <pre class="brush: js">
+
+                $.smartPop.open({title: '스마트팝', width: 500, height: 500, log: true, url: '보여줄 페이지' });
+                &nbsp;
+
+            </pre>
+            <div class="exp">
+                log: true 설정<br />
+                <input type="button" id="sample3" class="button" value="sample3" />
+            </div>
+        </li>
+        <li>창 바깥쪽 클릭하면 창닫기
+            <pre class="brush: js">
+
+                $.smartPop.open({title: '스마트팝', bodyClose: true, width: 500, height: 500, html: '보여줄 내용' });
+                &nbsp;
+
+            </pre>
+            <div class="exp">
+                <input type="button" id="sample4" class="button" value="sample4" />
+            </div>
+        </li>
+        <li>닫기 버튼 변경
+            <pre class="brush: js">
+
+                $.smartPop.open({title: '스마트팝', bodyClose: true, width: 500, height: 500, html: '보여줄 내용', closeImg: {width:13, height:13, src:'img/btn_close2.png'} });
+                &nbsp;
+            </pre>
+            <div class="exp">
+                <input type="button" id="sample5" class="button" value="sample5" />
+            </div>
+        </li>
+        <li>기본 옵션
+            <pre class="brush: js">
+
+                $.smartPop.defaults = {
+                    position    : 'center',
+                    left        : 310,
+                    top         : 10,
+                    bodyClose   : true,
+                    padding     : 10,
+                    background  : '#fff',
+                    border      : 5,
+                    borderColor : '#39a3e5',
+                    closeMargin : 3,
+                    closeImg    : {width:13, height:13, src:'img/btn_close1.png'},
+                    opacity     : .7,
+                    width       : 720,
+                    height      : 500,
+                    html        : '',
+                    url         : '',
+                    log         : false
+                };
+
+            </pre>
+        </li>
+    </ol>
+
+    <h2>다운로드</h2>
+    <ul class="content">
+        <li><a href="https://github.com/innocia/smartPop">https://github.com/innocia/smartPop</a></li>
+    </ul>
+
+    <footer>
+        <p>&copy; Copyright  by innocia</p>
+    </footer>
+</div>
+
+
+    <script type="text/javascript" src="http://lib.innocia.com/js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="http://lib.innocia.com/js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://lib.innocia.com/js/syntaxhighlighter/styles/shCoreRDark.css"/>
+    <script type="text/javascript">
+    function path()
+    {
+        var args = arguments,
+            result = []
+            ;
+
+        for(var i = 0; i < args.length; i++)
+            result.push(args[i].replace('@', 'http://lib.innocia.com/js/syntaxhighlighter/scripts/'));
+
+        return result;
+    }
+    SyntaxHighlighter.autoloader.apply(null, path(
+        'js jscript javascript  @shBrushJScript.js',
+        'applescript            @shBrushAppleScript.js',
+        'c# c-sharp csharp      @shBrushCSharp.js',
+        'css                    @shBrushCss.js',
+        'java                   @shBrushJava.js',
+        'js jscript javascript  @shBrushJScript.js',
+        'php                    @shBrushPhp.js',
+        'text plain             @shBrushPlain.js',
+        'sql                    @shBrushSql.js',
+        'xml xhtml xslt html    @shBrushXml.js'
+    ));
+
+    SyntaxHighlighter.all();
+    </script>
+
+</body>
+</html>

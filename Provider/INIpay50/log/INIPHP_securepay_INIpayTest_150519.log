@@ -1,0 +1,54 @@
+INFO	[2015-05-19 23:03:58:168] <7102> START INIPHP chkfake (V5034-120709)(OS:Darwin14.3.0,PHP:5.2.17)
+DEBUG	[2015-05-19 23:03:58:168] <7102> inipayhome:/Users/noggong/Documents/2.websource/10.hanwoo_mall/www_ng/mall_new/Provider/INIpay50
+DEBUG	[2015-05-19 23:03:58:168] <7102> type:chkfake
+DEBUG	[2015-05-19 23:03:58:168] <7102> debug:true
+DEBUG	[2015-05-19 23:03:58:168] <7102> enctype:asym
+DEBUG	[2015-05-19 23:03:58:168] <7102> admin:1111
+DEBUG	[2015-05-19 23:03:58:168] <7102> checkopt:false
+DEBUG	[2015-05-19 23:03:58:168] <7102> mid:INIpayTest
+DEBUG	[2015-05-19 23:03:58:168] <7102> price:31600
+DEBUG	[2015-05-19 23:03:58:168] <7102> nointerest:no
+DEBUG	[2015-05-19 23:03:58:168] <7102> quotabase:선택:00:02:03:04:05:06:07:08:09:10:11:12
+INFO	[2015-05-19 23:03:58:168] <7102> Check Field OK
+INFO	[2015-05-19 23:03:58:171] <7102> MERCHANT PRIV KEY LOAD OK
+INFO	[2015-05-19 23:03:58:173] <7102> MERCHANT PUB KEY LOAD OK []
+INFO	[2015-05-19 23:03:58:175] <7102> CHKFAKE KEY MAKE OK:MjAxNTA1MTkyMzAzNTgxNzM1NTUwNQ==
+
+INFO	[2015-05-19 23:03:58:175] <7102> END chkfake  Laptime:[0.01sec]
+INFO	[2015-05-19 23:03:58:175] <7102> ===============================================================
+INFO	[2015-05-19 23:04:13:208] <7476> START INIPHP chkfake (V5034-120709)(OS:Darwin14.3.0,PHP:5.2.17)
+DEBUG	[2015-05-19 23:04:13:208] <7476> inipayhome:/Users/noggong/Documents/2.websource/10.hanwoo_mall/www_ng/mall_new/Provider/INIpay50
+DEBUG	[2015-05-19 23:04:13:208] <7476> type:chkfake
+DEBUG	[2015-05-19 23:04:13:208] <7476> debug:true
+DEBUG	[2015-05-19 23:04:13:208] <7476> enctype:asym
+DEBUG	[2015-05-19 23:04:13:208] <7476> admin:1111
+DEBUG	[2015-05-19 23:04:13:208] <7476> checkopt:false
+DEBUG	[2015-05-19 23:04:13:208] <7476> mid:INIpayTest
+DEBUG	[2015-05-19 23:04:13:208] <7476> price:31600
+DEBUG	[2015-05-19 23:04:13:208] <7476> nointerest:no
+DEBUG	[2015-05-19 23:04:13:208] <7476> quotabase:선택:00:02:03:04:05:06:07:08:09:10:11:12
+INFO	[2015-05-19 23:04:13:209] <7476> Check Field OK
+INFO	[2015-05-19 23:04:13:209] <7476> MERCHANT PRIV KEY LOAD OK
+INFO	[2015-05-19 23:04:13:210] <7476> MERCHANT PUB KEY LOAD OK []
+INFO	[2015-05-19 23:04:13:212] <7476> CHKFAKE KEY MAKE OK:MjAxNTA1MTkyMzA0MTMyMTAxNjIyNQ==
+
+INFO	[2015-05-19 23:04:13:212] <7476> END chkfake  Laptime:[0sec]
+INFO	[2015-05-19 23:04:13:212] <7476> ===============================================================
+INFO	[2015-05-19 23:05:02:95] <7543> START INIPHP chkfake (V5034-120709)(OS:Darwin14.3.0,PHP:5.2.17)
+DEBUG	[2015-05-19 23:05:02:95] <7543> inipayhome:/Users/noggong/Documents/2.websource/10.hanwoo_mall/www_ng/mall_new/Provider/INIpay50
+DEBUG	[2015-05-19 23:05:02:95] <7543> type:chkfake
+DEBUG	[2015-05-19 23:05:02:95] <7543> debug:true
+DEBUG	[2015-05-19 23:05:02:95] <7543> enctype:asym
+DEBUG	[2015-05-19 23:05:02:95] <7543> admin:1111
+DEBUG	[2015-05-19 23:05:02:95] <7543> checkopt:false
+DEBUG	[2015-05-19 23:05:02:95] <7543> mid:INIpayTest
+DEBUG	[2015-05-19 23:05:02:95] <7543> price:31600
+DEBUG	[2015-05-19 23:05:02:95] <7543> nointerest:no
+DEBUG	[2015-05-19 23:05:02:95] <7543> quotabase:선택:00:02:03:04:05:06:07:08:09:10:11:12
+INFO	[2015-05-19 23:05:02:95] <7543> Check Field OK
+INFO	[2015-05-19 23:05:02:96] <7543> MERCHANT PRIV KEY LOAD OK
+INFO	[2015-05-19 23:05:02:96] <7543> MERCHANT PUB KEY LOAD OK []
+INFO	[2015-05-19 23:05:02:97] <7543> CHKFAKE KEY MAKE OK:MjAxNTA1MTkyMzA1MDIwOTYxNzAzMw==
+
+INFO	[2015-05-19 23:05:02:97] <7543> END chkfake  Laptime:[0sec]
+INFO	[2015-05-19 23:05:02:97] <7543> ===============================================================
